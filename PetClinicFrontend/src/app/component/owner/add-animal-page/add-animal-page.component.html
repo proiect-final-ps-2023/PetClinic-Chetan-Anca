@@ -1,0 +1,38 @@
+<div class="topnav">
+  <a class="active" href="/owner">Home</a>
+</div>
+
+<div style="margin-top: 20px" class="container col-md-6">
+  <h1 style="color: #1ABC9CFF">Add animal</h1>
+  <form>
+    <div class="mb-3">
+      <div class="myDIV">Name</div>
+      <div class="hide">Name is mandatory</div>
+      <input type="text" [(ngModel)]="animal.name" class="form-control" id="name" name="name">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Animal type</div>
+      <div class="hide">Animal type is mandatory!</div>
+      <select [(ngModel)]="animal.type" id="type" name="type" class="form-select">
+        <option value='CAT'>CAT</option>
+        <option value='DOG'>DOG</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Breed</div>
+      <input type="text" [(ngModel)]="animal.breed" class="form-control" id="breed" name="breed">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Age</div>
+      <div class="hide">Animal age is mandatory</div>
+      <input type="text" [(ngModel)]="animal.age" class="form-control" id="age" name="age">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Weight</div>
+      <div class="hide">Animal weight is mandatory</div>
+      <input type="text" [(ngModel)]="animal.weight" class="form-control" id="weight" name="weight">
+    </div>
+    <button type="button" class="btn btn-primary" (click)="add()">Add animal</button>
+  </form>
+</div>
+

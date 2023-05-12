@@ -1,0 +1,60 @@
+<div class="topnav">
+  <a class="active" href="/owner">Home</a>
+</div>
+
+<div style="margin-top: 20px" class="container col-md-6">
+  <h1 style="color: #1ABC9CFF">Add appointment</h1>
+  <form>
+    <div class="mb-3">
+      <div class="myDIV">Doctor name</div>
+      <div class="hide">Doctor name is mandatory</div>
+      <select (change)="selectedDoctor()" [(ngModel)]="doctorName" id="doctorName" name="doctorName"
+              class="form-select">
+        <option *ngFor="let name of doctorNamesList" [value]='name'>{{name}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Animal name</div>
+      <div class="hide">Animal name is mandatory</div>
+      <select [(ngModel)]="animalName" id="animalName" name="animalName" class="form-select">
+        <option *ngFor="let name of animalNamesList" [value]='name'>{{name}}</option>
+      </select>
+    </div>
+    <div (input)="selectedDate()" class="mb-3">
+      <div class="myDIV">Date</div>
+      <div class="hide">Date is mandatory</div>
+      <input class="form-control" type="date" [(ngModel)]="chosenDate" id="chosenDate" name="chosenDate">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Time</div>
+      <div class="hide">Time is mandatory</div>
+      <select [(ngModel)]="chosenTime" id="chosenTime" name="chosenTime" class="form-select">
+        <option *ngFor="let time of availableTime" [value]='time'>{{time}}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">First medical facility</div>
+      <div class="hide">At least one medical facility needed!</div>
+      <select [(ngModel)]="chosenFacility1" id="chosenFacility1" name="chosenFacility1" class="form-select">
+        <option *ngFor="let facility of facilities" [value]='facility.name'>{{facility.name}}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <div class="myDIV">Second medical facility</div>
+      <select [(ngModel)]="chosenFacility2" id="chosenFacility2" name="chosenFacility2" class="form-select">
+        <option *ngFor="let facility of facilities" [value]='facility.name'>{{facility.name}}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <div class="myDIV">Second medical facility</div>
+      <select [(ngModel)]="chosenFacility3" id="chosenFacility3" name="chosenFacility3" class="form-select">
+        <option *ngFor="let facility of facilities" [value]='facility.name'>{{facility.name}}</option>
+      </select>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="add()">Add appointment</button>
+  </form>
+</div>
+

@@ -1,0 +1,23 @@
+<div class="topnav">
+  <a class="active" href="/owner">Home</a>
+</div>
+
+<div style="margin-top: 20px" class="container col-md-6">
+  <h1 style="color: #1ABC9CFF">Update appointment</h1>
+  <form>
+    <div (input)="selectedDate()" class="mb-3">
+      <div class="myDIV">Date</div>
+      <div class="hide">Date is mandatory</div>
+      <input class="form-control" type="date" [(ngModel)]="chosenDate" id="chosenDate" name="chosenDate">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Time</div>
+      <div class="hide">Time is mandatory</div>
+      <select [(ngModel)]="chosenTime" id="chosenTime" name="chosenTime" class="form-select">
+        <option *ngFor="let time of availableTime" [value]='time'>{{time}}</option>
+      </select>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="update()">Update appointment</button>
+  </form>
+</div>
+

@@ -1,0 +1,23 @@
+<div class="topnav">
+  <a class="active" href="/owner">Home</a>
+</div>
+
+<div style="margin-top: 20px" class="container col-md-6">
+  <h1 style="color: #1ABC9CFF">Update animal</h1>
+  <form>
+    <div class="mb-3">
+      <div class="myDIV">Name</div>
+      <input type="text" [(ngModel)]="animal.name" class="form-control" id="name" name="name">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Age</div>
+      <input type="text" [(ngModel)]="animal.age" class="form-control" id="age" name="age">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Weight</div>
+      <input type="text" [(ngModel)]="animal.weight" class="form-control" id="weight" name="weight">
+    </div>
+    <button type="button" class="btn btn-primary" (click)="update()">Update animal</button>
+  </form>
+</div>
+

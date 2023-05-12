@@ -1,0 +1,30 @@
+.demo-table {
+  width: 100%;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  border-color: black;
+}
+
+.demo-row-is-clicked {
+  font-weight: bold;
+}
+
+.mat-cell .flex-stretch {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  /* align-items center so that cell content is vertically centered */
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}

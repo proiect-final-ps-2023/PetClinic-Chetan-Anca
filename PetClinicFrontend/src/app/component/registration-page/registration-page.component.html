@@ -1,0 +1,36 @@
+<div style="margin-top: 20px" class="container col-md-6">
+  <h1 style="color: #1ABC9CFF">User registration</h1>
+  <form (ngSubmit)="ownerRegister()">
+    <div class="mb-3">
+      <div class="myDIV">First Name</div>
+      <div class="hide">First Name is mandatory!</div>
+      <input type="text" [(ngModel)]="owner.firstName" class="form-control" id="firstName" name="firstName">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Last Name</div>
+      <div class="hide">Last Name is mandatory!</div>
+      <input type="text" [(ngModel)]="owner.lastName" class="form-control" id="lastName" name="lastName">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Email</div>
+      <div class="hide">Email must represent this format [email]@[app].[domain]!</div>
+      <input type="email" [(ngModel)]="owner.email" class="form-control" id="email" name="email">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Password</div>
+      <div class="hide">Password should contain: at least 10 characters, at least 1 upper case, at least 1 lower case,
+        at least 1 special character!
+      </div>
+      <input type="password" [(ngModel)]="owner.password" class="form-control" id="password" name="password">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Phone number</div>
+      <div class="hide">Phone number phone number can either contain country code or not: country code is either
+        starting with '+' or '00'!
+      </div>
+      <input type="text" [(ngModel)]="owner.phoneNumber" class="form-control" id="phoneNumber" name="PhoneNumber">
+    </div>
+    <button type="submit" class="btn btn-primary">Complete registration</button>
+  </form>
+</div>
+

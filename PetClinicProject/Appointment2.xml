@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<appointment>
+    <appointmentId>2</appointmentId>
+    <doctor>
+        <doctorId>8</doctorId>
+        <firstName>Ioana</firstName>
+        <lastName>Muresan</lastName>
+        <email>ioanamuresan@vet.com</email>
+        <password>VetClinic#124</password>
+        <phoneNumber>0756328964</phoneNumber>
+        <startScheduleTime>08:00:00</startScheduleTime>
+        <endScheduleTime>16:00:00</endScheduleTime>
+        <starsSum>5</starsSum>
+        <numberOfRatings>1</numberOfRatings>
+        <rating>5</rating>
+    </doctor>
+    <animal>
+        <animalId>1</animalId>
+        <name>Mitzu</name>
+        <owner>
+            <ownerId>2</ownerId>
+            <firstName>Andra</firstName>
+            <lastName>Dragus</lastName>
+            <email>anca.chetan1706@gmail.com</email>
+            <password>$2a$10$zIS7gU6z6bv./vHMyTKMzOoxa1gdvPaM3Fjazqx0axwERXBy2ClYW</password>
+            <phoneNumber>0751951499</phoneNumber>
+        </owner>
+        <type>CAT</type>
+        <breed>Scottish fold</breed>
+        <age>1</age>
+        <weight>5.0</weight>
+    </animal>
+    <date>2023-05-30T13:00:00</date>
+    <medicalFacilities>
+        <id>2</id>
+        <name>Consultation</name>
+        <price>100</price>
+    </medicalFacilities>
+    <medicalFacilities>
+        <id>1</id>
+        <name>Vaccination</name>
+        <price>75</price>
+    </medicalFacilities>
+</appointment>

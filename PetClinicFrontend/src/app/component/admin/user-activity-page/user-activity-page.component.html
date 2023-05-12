@@ -1,0 +1,50 @@
+<div class="topnav">
+  <a class="active" href="/admin">Home</a>
+</div>
+
+<div style="margin-top: 50px" class="container col-md-2">
+  <h1>Our users</h1>
+</div>
+
+<div style="background-color: #1ABC9CFF;margin-top: 50px" class="container col-md-9">
+  <table mat-table [dataSource]="userList" class="mat-elevation-z8 demo-table">
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let user">{{user.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let user">{{user.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Password">
+      <th mat-header-cell *matHeaderCellDef>Password</th>
+      <td mat-cell *matCellDef="let user">{{user.password.substring(0, 20)}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="UserType">
+      <th mat-header-cell *matHeaderCellDef>User type</th>
+      <td mat-cell *matCellDef="let user">{{user.userType}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Logged">
+      <th mat-header-cell *matHeaderCellDef>Logged</th>
+      <td mat-cell *matCellDef="let user">{{user.logged}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Last logged in">
+      <th mat-header-cell *matHeaderCellDef>Last logged in</th>
+      <td mat-cell *matCellDef="let user">{{user.lastLoggedIn}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Last logged out">
+      <th mat-header-cell *matHeaderCellDef>Last logged out</th>
+      <td mat-cell *matCellDef="let user">{{user.lastLoggedOut}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+  </table>
+</div>
+

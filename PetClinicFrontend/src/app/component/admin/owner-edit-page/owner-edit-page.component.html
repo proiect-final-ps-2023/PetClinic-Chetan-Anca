@@ -1,0 +1,97 @@
+<div class="topnav">
+  <a class="active" href="/admin">Home</a>
+</div>
+
+<div style="margin-top: 50px" class="container col-md-3">
+  <h1>Our pet owners</h1>
+</div>
+<div class="container col-md-2">
+  <button type="button" class="btn btn-dark" routerLink="/add-owners">Add owner</button>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-7 mt-5">
+      <div class="form-group d-flex align-items-center">
+        <input style="margin-left: 10px" type="text" [(ngModel)]="filterName" class="form-control" id="find"
+               name="email"
+               placeholder="search">
+        <select style="margin-left: 10px" [(ngModel)]="criteria" id="criteria" name="criteria" class="form-select">
+          <option value="id">Find by id</option>
+          <option value="firstName">Find by first name</option>
+          <option value="lastName">Find by last name</option>
+          <option value="email">Find by email</option>
+          <option value="all">Find all</option>
+        </select>
+        <button style="margin-left: 10px" type="button" class="btn btn-dark" (click)="onSearch()">Search
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background-color: #1ABC9CFF;margin-top: 50px" class="container col-md-9">
+  <table mat-table [dataSource]="ownersList" class="mat-elevation-z8 demo-table">
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let owner">{{owner.ownerId}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="First Name">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td mat-cell *matCellDef="let owner">{{owner.firstName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Last Name">
+      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td mat-cell *matCellDef="let owner">{{owner.lastName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Phone Number">
+      <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+      <td mat-cell *matCellDef="let owner">{{owner.phoneNumber}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let owner">{{owner.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Password">
+      <th mat-header-cell *matHeaderCellDef>Password</th>
+      <td mat-cell *matCellDef="let owner">{{owner.password.substring(0, 20)}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let owner">
+        <a [routerLink]="['/update-owners', owner.ownerId]"
+        ><mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="edit"
+        >
+        </mat-icon
+        ></a>
+        <mat-icon
+          (click)="openDeleteModal(owner.ownerId)"
+          aria-hidden="false"
+          aria-label="Example delete icon"
+          fontIcon="delete"
+        >
+        </mat-icon>
+        <mat-icon
+          (click)="saveXML(owner.ownerId)"
+          aria-hidden="false"
+          aria-label="Example save icon"
+          fontIcon="save"
+        >
+        </mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+  </table>
+</div>
+

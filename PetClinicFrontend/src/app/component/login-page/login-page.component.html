@@ -1,0 +1,25 @@
+<div style="margin-top: 20px" class="container col-md-6">
+  <h1 style="color: #1ABC9CFF">User login</h1>
+  <form (ngSubmit)="userLogin()">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" [(ngModel)]="user.email" class="form-control" id="email" name="email">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" [(ngModel)]="user.password" class="form-control" id="password" name="password">
+    </div>
+    <div class="mb-3">  <a href="/forgotPassword"> Password forgotten? </a> </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+  <div *ngIf="show">
+    <div class="mb-3">
+      <label for="code" class="form-label">Enter your email code here</label>
+      <input type="text" [(ngModel)]="code" class="form-control" id="code" name="code">
+    </div>
+    <button (click)="verify()" type="button" class="btn btn-primary">Verify and login</button>
+  </div>
+  <div style="color: #1ABC9CFF;margin-top: 20px">Not registered yet?</div>
+  <button style="margin-top: 20px" type="button" (click)="userRegister()" class="btn btn-primary">Register here!
+  </button>
+</div>

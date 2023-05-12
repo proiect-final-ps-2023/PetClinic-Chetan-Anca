@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-7 mt-5">
+      <div class="form-group d-flex align-items-center">
+        <input style="margin-left: 10px" type="text" [(ngModel)]="name" class="form-control" id="find" name="email"
+               placeholder="search">
+        <button style="margin-left: 10px" type="button" class="btn btn-dark" (click)="onSearch()">Search</button>
+        <div class="form-check-inline" style="display: block">
+          <input style="margin-left: 10px" type="checkbox" [(ngModel)]="isCheckedFirstName" class="form-check-input"
+                 id="firstName" name="firstName">
+          <label style="margin-left: 10px" class="form-check-label" for="firstName">Find by first name</label>
+        </div>
+        <div class="form-check-inline" style="display: block">
+          <input style="margin-left: 10px" type="checkbox" [(ngModel)]="isCheckedLastName" class="form-check-input"
+                 id="lastName" name="lastName">
+          <label style="margin-left: 10px" class="form-check-label" for="lastName">Find by last name</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div style="margin-top: 50px" class="container col-md-3">
+  <h1>Our doctors</h1>
+</div>
+<div style="background-color: #1ABC9CFF;margin-top: 50px" class="container col-md-9">
+  <table mat-table [dataSource]="doctorsList" class="mat-elevation-z8 demo-table">
+    <ng-container matColumnDef="First Name">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td mat-cell *matCellDef="let doctor">{{doctor.firstName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Last Name">
+      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td mat-cell *matCellDef="let doctor">{{doctor.lastName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Phone Number">
+      <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+      <td mat-cell *matCellDef="let doctor">{{doctor.phoneNumber}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Start Schedule Time">
+      <th mat-header-cell *matHeaderCellDef>Start Schedule Time</th>
+      <td mat-cell *matCellDef="let doctor">{{doctor.startScheduleTime}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="End Schedule Time">
+      <th mat-header-cell *matHeaderCellDef>End Schedule Time</th>
+      <td mat-cell *matCellDef="let doctor">{{doctor.endScheduleTime}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Rating">
+      <th hidden="hidden" mat-header-cell *matHeaderCellDef>Rating</th>
+      <td hidden="hidden" mat-cell *matCellDef="let doctor">{{doctor.rating}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Show rating">
+      <th mat-header-cell *matHeaderCellDef>Show rating</th>
+      <td mat-cell *matCellDef="let doctor">
+        <mat-icon *ngIf="doctor.rating > 4">star</mat-icon>
+        <mat-icon *ngIf="doctor.rating > 3">star</mat-icon>
+        <mat-icon *ngIf="doctor.rating > 2">star</mat-icon>
+        <mat-icon *ngIf="doctor.rating > 1">star</mat-icon>
+        <mat-icon *ngIf="doctor.rating > 0">star</mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+  </table>
+</div>
+

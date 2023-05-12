@@ -1,0 +1,54 @@
+<div class="topnav">
+  <a class="active" href="/admin">Home</a>
+</div>
+
+<div style="margin-top: 20px" class="container col-md-6">
+  <h1 style="color: #1ABC9CFF">Add doctor</h1>
+  <form>
+    <div class="mb-3">
+      <div class="myDIV">First Name</div>
+      <div class="hide">First Name is mandatory!</div>
+      <input type="text" [(ngModel)]="doctor.firstName" class="form-control" id="firstName" name="firstName">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">First Name</div>
+      <div class="hide">Last Name is mandatory!</div>
+      <input type="text" [(ngModel)]="doctor.lastName" class="form-control" id="lastName" name="lastName">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Email</div>
+      <div class="hide">Email must represent this format [email]@[app].[domain]!</div>
+      <input type="email" [(ngModel)]="doctor.email" class="form-control" id="email" name="email">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Password</div>
+      <div class="hide">Password should contain: at least 10 characters, at least 1 upper case, at least 1 lower case,
+        at least 1 special character!
+      </div>
+      <input type="password" [(ngModel)]="doctor.password" class="form-control" id="password" name="password">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Phone number</div>
+      <div class="hide">Phone number phone number can either contain country code or not: country code is either
+        starting with '+' or '00'!
+      </div>
+      <input type="text" [(ngModel)]="doctor.phoneNumber" class="form-control" id="phoneNumber" name="PhoneNumber">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">Start schedule time</div>
+      <div class="hide">Schedule time need to have this format hh:mm:ss!
+      </div>
+      <input type="text" [(ngModel)]="doctor.startScheduleTime" class="form-control" id="startScheduleTime"
+             name="startScheduleTime">
+    </div>
+    <div class="mb-3">
+      <div class="myDIV">End schedule time</div>
+      <div class="hide">Schedule time need to have this format hh:mm:ss!
+      </div>
+      <input type="text" [(ngModel)]="doctor.endScheduleTime" class="form-control" id="endScheduleTime"
+             name="endScheduleTime">
+    </div>
+    <button type="button" class="btn btn-primary" (click)="add()">Add doctor</button>
+  </form>
+</div>
+

@@ -1,0 +1,85 @@
+<div class="topnav">
+  <a class="active" href="/owner">Home</a>
+</div>
+
+<div style="margin-top: 50px" class="container col-md-3">
+  <h1>My appointments</h1>
+</div>
+<div class="container col-md-2">
+  <button type="button" class="btn btn-dark" routerLink="/owner/appointmentsEdit/add-appointments">Add
+    appointment
+  </button>
+</div>
+<div style="background-color: #1ABC9CFF;margin-top: 50px" class="container col-md-9">
+  <table mat-table [dataSource]="appointmentsList" class="mat-elevation-z8 demo-table">
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let appointment">{{appointment.appointmentId}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Doctor First Name">
+      <th mat-header-cell *matHeaderCellDef>Doctor First Name</th>
+      <td mat-cell *matCellDef="let appointment">{{appointment.doctor.firstName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Doctor Last Name">
+      <th mat-header-cell *matHeaderCellDef>Doctor Last Name</th>
+      <td mat-cell *matCellDef="let appointment">{{appointment.doctor.lastName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let appointment">{{appointment.date}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Facilities">
+      <th mat-header-cell *matHeaderCellDef>Facilities</th>
+      <td mat-cell *matCellDef="let appointment">
+        <mat-list-item *ngFor="let facility of appointment.medicalFacilities">
+          <div mat-line>{{facility.name}}</div>
+        </mat-list-item>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let appointment">
+        <a [routerLink]="['update-appointments', appointment.appointmentId]"
+        >
+          <mat-icon
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="edit"
+          >
+          </mat-icon
+          >
+        </a>
+        <mat-icon
+          (click)="openDeleteModal(appointment.appointmentId)"
+          aria-hidden="false"
+          aria-label="Example delete icon"
+          fontIcon="delete"
+        >
+        </mat-icon>
+        <mat-icon
+          (click)="sendBill(appointment.appointmentId)"
+          aria-hidden="false"
+          aria-label="Example email icon"
+          fontIcon="email"
+        >
+        </mat-icon>
+        <mat-icon
+          (click)="saveXML(appointment.appointmentId)"
+          aria-hidden="false"
+          aria-label="Example save icon"
+          fontIcon="save"
+        >
+        </mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+  </table>
+</div>
+
